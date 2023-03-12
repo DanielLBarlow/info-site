@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Screen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="content">
+        <h1>Commands for screen</h1>
+        <ul>
+            <h3>How to install screen on Ubuntu and Debian</h3>
+            <li>sudo apt-get install screen</li>
+
+            <h3>How to check the current version of screen</h3>
+            <li>screen --version</li>
+
+            <h3>How to make a screen</h3>
+            <li>screen</li>
+
+            <h3>How to view the commands available for screen</h3>
+            <li>Ctrl + A then ?</li>
+            <p>Press the control button and the letter A at the same time then release these keys and press the ? key</p>
+
+            <h3>How to create a screen with a name</h3>
+            <li>screen -S {screen_name}</li>
+            <p>Remove the brackets when typing the name of the screen. Screen name can not include spaces</p>
+
+            <h3>How to list available screens</h3>
+            <li>screen -ls</li>
+
+            <h3>How to detatch from the named screen</h3>
+            <li>Ctrl + A then D</li>
+            <p>Press the control button and the letter A at the same time then release these keys and press the letter D</p>
+
+            <h3>How to reattach to a screen</h3>
+            <li> screen -r {screen_name}</li>
+            <p>Remove the brackets when typing the name of the screen</p>
+            <p>You can also use the PID number instead of the screen name reattach</p>
+
+            <h3>How to rename a screen</h3>
+            <li>Ctrl + a then : sessionname{new_screen_name}</li>
+            <p>Press the control button and the letter A at the same time then release these keys and press the : key</p>
+            <p>This command needs to be executed within the screen you want to rename.</p>
+            <p>when renaming the screen you must type `sessionname{new_screen_name}`</p>
+
+            <h3>How to end a screen session(Attached to the screen)</h3>
+            <li>Ctrl + A then K then Y to confirm</li>
+            <p>Press the control button and the letter A at the same time then release these keys and press the letter K.</p>
+            <p>A confirmation will pop up saying are you sure. Hit Y to confirm</p>
+
+            <h3>How to end a screen session(Not attached to the screen)</h3>
+            <li>screen -S {screen_name} -X quit</li>
+            <p>You can also use the PID number instead of the screen name to quit</p>
+        </ul>
+    </div>
+</body>
