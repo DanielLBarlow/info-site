@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cockpit</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Cockpit install</h1>
+        <ol>
+            <li>sudo apt update</li>
+            <li>sudo apt install cockpit -y</li>
+            <li>sudo systemctl start cockpit</li>
+            <li>sudo systemctl status</li>
+        </ol>
+        <h1>firewalld install</h1>
+        <ol>
+            <li>sudo apt update</li>
+            <li>sudo apt install firewalld</li>
+            <li>sudo systemctl enable firewalld</li>
+            <li>sudo systemctl start firewalld</li>
+            <li>sudo firewall-cmd --state</li>
+            <li>sudo firewall-cmd --add-service-cockpit</li>
+            <li>sudo firewall-cmd --add-service-cockpit --permanent</li>
+            <li>pkcheck --action-id org.fedoraproject.FirewallD1.all --process $$ --allow-user-interaction</li>
+            <li>pkcheck --action-id org.fedoraproject.FirewallD1.all --process $$ --allow-user-interaction --enable-internal-agent</li>
+            <li>sudo reboot now</li>
+        </ol>
+        <h1>Software Updates Fix</h1>
+        <ol>
+            <li>sudo nano /etc/netplan/00-installer-config.yaml</li>
+            <li>
+            <pre>
+                <code>
+                network:
+                  renderer: NetworkManager
+                  ethernets:
+                    enp3s0:
+                      dhcp4: true
+                 version: 2
+                </code>
+            </pre>
+            </li>
+            <li>Press CTRL + X then hit Y. Then hit Enter.</li>
+            <li>sudo netplan try</li>
+            <li>sudo netplan apply</li>
+        </ol>
+        <h1>SOURCES</h1>
+        <ul>
+            <li>https://www.linuxtechi.com/how-to-install-cockpit-on-ubuntu-20-04/</li>
+            <li>https://computingforgeeks.com/install-and-use-firewalld-on-ubuntu/</li>
+            <li>https://www.reddit.com/r/Fedora/comments/wlx7mk/just_installed_fedora_server_cant_access_by/</li>
+            <li>https://github.com/cockpit-project/cockpit/issues/8477#issuecomment-11393537</li>
+            <p>My github post on the issue with firewalld</p>
+            <li>https://github.com/cockpit-project/cockpit/issues/18747</li>
+        </ul>
+    </div>    
+</body>
+</html>
